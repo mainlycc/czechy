@@ -210,7 +210,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 md:px-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Cennik</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
-            {prices.map((item, idx) => (
+            {prices.map((item) => (
               <div
                 key={item.category}
                 className={`relative bg-white rounded-xl shadow-sm p-6 sm:p-8 border border-accent flex flex-col items-center gap-2 ${item.popular ? 'ring-4 ring-primary' : ''}`}
