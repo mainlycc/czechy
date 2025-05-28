@@ -2,14 +2,9 @@ import {
   BadgeDollarSign,
   Route,
   ShieldCheck,
-  Truck,
-  Undo2,
-  UserRoundCheck,
   Languages,
   TimerReset,
   Users,
-  Info,
-  CheckCircle2,
 } from "lucide-react";
 
 const faq = [

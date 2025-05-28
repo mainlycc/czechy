@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import FAQ05 from "@/components/faq-05/faq-05";
 
 const timeline = [
@@ -140,8 +140,8 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 md:px-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Dlaczego warto?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {advantages.map((adv, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm p-5 sm:p-6 border border-accent flex flex-col gap-2 sm:gap-3">
+            {advantages.map((adv) => (
+              <div key={adv.title} className="bg-white rounded-xl shadow-sm p-5 sm:p-6 border border-accent flex flex-col gap-2 sm:gap-3">
                 <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">{adv.icon}</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-0.5 sm:mb-1">{adv.title}</h3>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{adv.desc}</p>
@@ -176,16 +176,16 @@ export default function Home() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card>
-              <CardContent>
-                <p className="text-lg mb-4">🗣 "4 razy nie zdałam w Polsce. Dzięki tej usłudze mam prawo jazdy w tydzień!"</p>
+              <div>
+                <p className="text-lg mb-4">🗣 &quot;4 razy nie zdałam w Polsce. Dzięki tej usłudze mam prawo jazdy w tydzień!&quot;</p>
                 <p className="font-semibold">— Karolina, 27 lat z Wrocławia</p>
-              </CardContent>
+              </div>
             </Card>
             <Card>
-              <CardContent>
-                <p className="text-lg mb-4">🗣 "Nie wierzyłem, że to takie proste. Świetna organizacja, zero stresu."</p>
+              <div>
+                <p className="text-lg mb-4">🗣 &quot;Nie wierzyłem, że to takie proste. Świetna organizacja, zero stresu.&quot;</p>
                 <p className="font-semibold">— Paweł, 34 lata, Poznań</p>
-              </CardContent>
+              </div>
             </Card>
           </div>
         </div>
@@ -242,7 +242,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center gap-4">
             <a href="https://wa.me/48788450137" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" fill="currentColor"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.1 2.33 7.09L4 29l7.18-2.28A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.98 0-3.89-.52-5.54-1.5l-.39-.23-4.27 1.36 1.4-4.16-.25-.4A9.94 9.94 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.07-7.75c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.62-.47-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.34-.26.26-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.15.2 2.03 3.1 4.93 4.22.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" fill="currentColor"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.1 2.33 7.09L4 29l7.18-2.28A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.98 0-3.89-.52-5.54-1.5l-.39-.23-4.27 1.36 1.4-4.16-.25-.4A9.94 9.94 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.07-7.75c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.28.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.62-.47-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.34-.26.26-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.15.2 2.03 3.1 4.93 4.22.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
               WhatsApp
             </a>
           </div>
