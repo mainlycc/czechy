@@ -2,37 +2,39 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle, Phone, Mail, Star, ArrowRight, Zap } from "lucide-react";
 import FAQ05 from "@/components/faq-05/faq-05";
 
 const timeline = [
   {
-    icon: "📞",
+    number: "1",
     title: "Kontakt i rezerwacja",
     desc: "Zadzwoń, napisz lub wypełnij formularz. Ustalimy termin, transport i odpowiemy na wszystkie pytania.",
   },
   {
-    icon: "🚗",
+    number: "2",
     title: "Przyjazd do Czech",
     desc: "Przyjeżdżasz wybraną formą transportu. Odbieramy Cię z dworca lub lotniska i pomagamy od pierwszych chwil.",
   },
   {
-    icon: "🏨",
+    number: "3",
     title: "Zakwaterowanie",
     desc: "Zapewniamy wygodny nocleg blisko egzaminu. Odpoczniesz, zrelaksujesz się i przygotujesz do ważnego dnia.",
   },
   {
-    icon: "🧑‍🏫",
+    number: "4",
     title: "Przygotowanie do egzaminu",
     desc: "Możesz skorzystać z konsultacji lub jazdy próbnej. Poznasz trasę i poczujesz się pewniej.",
   },
   {
-    icon: "📝",
+    number: "5",
     title: "Egzamin praktyczny",
     desc: "Egzamin trwa ok. 30 minut. Pomagamy w komunikacji, atmosfera jest przyjazna, a zasady jasne.",
   },
   {
-    icon: "🎉",
+    number: "6",
     title: "Zdałeś prawo jazdy!",
     desc: "Gratulacje! Otrzymujesz czeskie prawo jazdy uznawane w całej UE. Ciesz się wolnością za kierownicą!",
   },
@@ -82,6 +84,7 @@ const prices = [
 
 export default function Home() {
   const [showCallPopout, setShowCallPopout] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowCallPopout(true), 10000);
@@ -89,162 +92,382 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero sekcja */}
-      <section className="bg-background text-foreground py-20">
-        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center md:items-start justify-between gap-12">
-          {/* Lewa kolumna: tekst */}
-          <div className="flex-1 text-center md:text-left md:pr-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              ✅ Zdaj egzamin praktyczny w Czechach – łatwiej, szybciej, bez stresu
-            </h1>
-            <p className="text-xl mb-8 max-w-3xl mx-auto md:mx-0">
-              Nie możesz zdać prawa jazdy w Polsce? Z nami zdasz praktykę w Czechach – pomagamy we wszystkim, od A do Z.
-            </p>
-            <div className="flex flex-col gap-4 items-center sm:items-start mb-6">
-              <Button asChild size="lg" className="text-lg font-semibold px-8 py-4 bg-primary text-primary-foreground hover:bg-accent">
-                <a href="tel:+48788450137">👉 Zadzwoń po bezpłatną konsultację</a>
-              </Button>
-            </div>
-            <div className="mt-6">
-              <span className="block text-2xl font-bold tracking-widest">CZESKIEPRAWOJAZDY@PROTON.ME</span>
-            </div>
-          </div>
-          {/* Prawa kolumna: obrazek */}
-          <div className="flex-1 flex justify-center md:justify-end w-full">
-            <Image
-              src="/samochód.png"
-              alt="Samochód nauki jazdy"
-              width={520}
-              height={300}
-              className="rounded shadow-lg w-full max-w-[520px] h-auto"
-              priority
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Pasek zaufania */}
-      <section className="py-8 bg-gray-50">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="flex justify-center items-center gap-8 flex-wrap">
-            <div className="text-gray-600">CE</div>
-            <div className="text-gray-600">Auto szkoła partnerska</div>
-            <div className="text-gray-600">⭐️ Polecane przez kursantów</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Zalety */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6 md:px-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Dlaczego warto?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {advantages.map((adv) => (
-              <div key={adv.title} className="bg-white rounded-xl shadow-sm p-5 sm:p-6 border border-accent flex flex-col gap-2 sm:gap-3">
-                <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">{adv.icon}</div>
-                <h3 className="text-lg sm:text-xl font-bold mb-0.5 sm:mb-1">{adv.title}</h3>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{adv.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proces - oś czasu */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 md:px-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Jak wygląda cały proces?</h2>
-          <ol className="relative border-l-4 border-accent max-w-xl sm:max-w-3xl mx-auto">
-            {timeline.map((step, idx) => (
-              <li key={idx} className="mb-10 sm:mb-12 ml-4 sm:ml-6 flex flex-col sm:flex-row sm:items-center">
-                <span className="absolute -left-6 sm:-left-7 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent text-2xl sm:text-3xl font-bold border-4 border-white shadow-lg">
-                  {step.icon}
-                </span>
-                <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-accent w-full">
-                  <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{step.desc}</p>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Optimized for conversion */}
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="container mx-auto px-4 py-16 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <div className="flex justify-center">
+                  <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 text-sm font-semibold flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-white" /> wysoka skuteczność zdawalności!
+                  </Badge>
                 </div>
-              </li>
+                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+                  <span className="text-white">Prawo jazdy w Czechach – </span>
+                  <span className="text-orange-400 font-extrabold drop-shadow-lg">zdaj egzamin praktyczny</span>
+                  <span className="text-white"> łatwo, szybko, bez stresu</span>
+                </h1>
+                <p className="text-xl text-blue-100 leading-relaxed">
+                  Nie możesz zdać prawa jazdy w Polsce? Z nami zdasz praktykę w Czechach – pomagamy we wszystkim, od A do Z.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  <Zap className="mr-2 h-5 w-5" />
+                  Zacznij dzisiaj
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold"
+                  onClick={() => {
+                    const pricingSection = document.getElementById('cennik');
+                    if (pricingSection) {
+                      pricingSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Zobacz ceny
+                </Button>
+              </div>
+
+              <div className="flex items-center gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span>Brak ukrytych kosztów</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span>Wsparcie 24/7</span>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-2 text-center font-semibold text-2xl text-orange-200">
+                  <span>Adres e-mail:</span>
+                  <button
+                    className={`transition-colors duration-200 focus:outline-none text-3xl font-bold ${copied ? 'text-green-400' : 'text-orange-400'}`}
+                    onClick={() => {
+                      navigator.clipboard.writeText('czeskieprawojazdy@proton.me');
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 1500);
+                    }}
+                    title="Kliknij, aby skopiować adres e-mail"
+                  >
+                    czeskieprawojazdy@proton.me
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-2">
+                <Image
+                  src="/samochód.png"
+                  alt="Egzamin praktyczny na prawo jazdy w Czechach"
+                  width={600}
+                  height={400}
+                  className="rounded-xl shadow-2xl"
+                  priority
+                />
+              </div>
+              {/* Floating testimonial */}
+              <div className="absolute -bottom-6 -left-6 bg-white text-gray-900 p-4 rounded-lg shadow-xl max-w-xs">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-sm font-semibold">5.0</span>
+                </div>
+                <p className="text-sm">"Zdałem za pierwszym razem! Polecam każdemu."</p>
+                <p className="text-xs text-gray-600 mt-1">- Marcin K.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust indicators */}
+      <section className="py-8 bg-gradient-to-r from-orange-50 via-blue-50 to-orange-100 shadow-lg border-y-2 border-orange-200">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-blue-900">500+</div>
+              <div className="text-sm text-gray-600">Zadowolonych klientów</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-blue-900">30 min</div>
+              <div className="text-sm text-gray-600">Średni czas egzaminu</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-blue-900">5</div>
+              <div className="text-sm text-gray-600">Lat doświadczenia</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-blue-900">24/7</div>
+              <div className="text-sm text-gray-600">Wsparcie klientów</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why choose us section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Dlaczego warto?</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Poznaj wszystkie korzyści i zobacz, dlaczego tysiące Polaków wybiera Czech Republic
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {advantages.map((item, index) => (
+              <Card
+                key={index}
+                className="border-2 border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300 shadow-lg bg-white"
+              >
+                <CardHeader>
+                  <div className="mb-4 flex justify-center items-center">
+                    <span className="text-5xl">{item.icon}</span>
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 leading-relaxed">{item.desc}</CardDescription>
+                </CardContent>
+              </Card>
             ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Opinie */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card>
-              <div>
-                <p className="text-lg mb-4">🗣 &quot;4 razy nie zdałam w Polsce. Dzięki tej usłudze mam prawo jazdy w tydzień!&quot;</p>
-                <p className="font-semibold">— Karolina, 27 lat z Wrocławia</p>
-              </div>
-            </Card>
-            <Card>
-              <div>
-                <p className="text-lg mb-4">🗣 &quot;Nie wierzyłem, że to takie proste. Świetna organizacja, zero stresu.&quot;</p>
-                <p className="font-semibold">— Paweł, 34 lata, Poznań</p>
-              </div>
-            </Card>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-3xl font-bold mb-6">Nie trać więcej czasu i nerwów.</h2>
-          <p className="text-xl mb-8">Zdaj praktykę w Czechach i ciesz się wolnością za kierownicą.</p>
-          <Button asChild size="lg" className="text-lg font-semibold px-8 py-4 bg-white text-primary hover:bg-accent mb-6">
-            <a href="#kontakt">👉 Skontaktuj się z nami już dziś</a>
-          </Button>
-          <div className="mt-6">
-            <span className="block text-2xl font-bold tracking-widest">CZESKIEPRAWOJAZDY@PROTON.ME</span>
+      {/* Process section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-gray-50 to-orange-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Jak wygląda proces uzyskania prawa jazdy w Czechach?
+            </h2>
+            <p className="text-xl text-gray-600">Prosty, przejrzysty proces w 6 krokach</p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            {timeline.map((item, index) => (
+              <div key={index} className="flex gap-6 mb-8 last:mb-0">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                    {item.number}
+                  </div>
+                  {index < 5 && <div className="w-0.5 h-16 bg-orange-200 mx-auto mt-4"></div>}
+                </div>
+                <div className="flex-1 pt-2 bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Cennik */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 md:px-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Cennik</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
-            {prices.map((item) => (
-              <div
-                key={item.category}
-                className={`relative bg-white rounded-xl shadow-sm p-6 sm:p-8 border border-accent flex flex-col items-center gap-2 ${item.popular ? 'ring-4 ring-primary' : ''}`}
+      {/* Testimonials section */}
+      <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Opinie kursantów o egzaminach w Czechach</h2>
+            <p className="text-xl text-blue-100">Zobacz, co mówią nasi zadowoleni klienci</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                text: "Już nie musiałem się stresować. Cały proces był bardzo dobrze zorganizowany, a instruktor świetnie mnie przygotował.",
+                author: "Marcin K.",
+                rating: 5,
+              },
+              {
+                text: "Nie wierzyłem, że to może być takie proste. Zdałem za pierwszym razem i zaoszczędziłem mnóstwo pieniędzy.",
+                author: "Anna S.",
+                rating: 5,
+              },
+              {
+                text: "Polecam każdemu, kto ma problemy z egzaminem w Polsce. W Czechach wszystko poszło gładko.",
+                author: "Tomasz W.",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+                <CardContent className="p-6">
+                  <div className="flex text-yellow-400 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-lg mb-4 leading-relaxed !text-white">"{testimonial.text}"</p>
+                  <p className="font-semibold text-orange-300">- {testimonial.author}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold">
+              Nie trać więcej czasu i pieniędzy
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <p className="mt-4 text-blue-100">
+              Zadzwoń do nas już dziś: <span className="font-bold text-orange-300">CZESKIEPRAWOJAZDY@PROTON.ME</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing section */}
+      <section id="cennik" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Cennik egzaminów i kursów prawa jazdy w Czechach</h2>
+            <p className="text-xl text-gray-600">Przejrzyste ceny, bez ukrytych kosztów</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {prices.map((item, index) => (
+              <Card
+                key={index}
+                className={`relative shadow-lg bg-white transition-all duration-300 hover:shadow-xl ${
+                  item.popular
+                    ? "border-2 border-orange-500 shadow-xl scale-105 ring-4 ring-orange-100"
+                    : "border-2 border-gray-200 hover:border-orange-300"
+                }`}
               >
                 {item.popular && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold shadow">Najpopularniejsze</span>
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-1">
+                    Najpopularniejsze
+                  </Badge>
                 )}
-                <span className="text-base sm:text-xl font-bold mb-1 sm:mb-2">{item.category}</span>
-                <span className="text-2xl sm:text-3xl font-extrabold text-primary">{item.price}</span>
-              </div>
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl text-gray-900">{item.category}</CardTitle>
+                  <div className="text-4xl font-bold text-orange-500 mt-4">{item.price}</div>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <Button
+                    className={`w-full ${item.popular ? "bg-orange-500 hover:bg-orange-600" : "bg-blue-600 hover:bg-blue-700"} text-white`}
+                    size="lg"
+                  >
+                    Wybierz pakiet
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-4">Ceny zawierają pełną obsługę, transport i zakwaterowanie</p>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+            >
+              Zapytaj o indywidualną wycenę
+            </Button>
+          </div>
+
+          {/* Sekcja z informacją o VAT i opcjach płatności */}
+          <div className="mt-16 bg-blue-50 rounded-xl py-6 px-4 text-center">
+            <p className="text-lg font-semibold text-gray-700 mb-4">Wszystkie ceny zawierają podatek VAT. Możliwość płatności w ratach.</p>
+            <div className="flex flex-wrap justify-center gap-8 text-base font-medium text-gray-700">
+              <span className="flex items-center gap-2"><span role="img" aria-label="karta">💳</span> Płatność kartą</span>
+              <span className="flex items-center gap-2"><span role="img" aria-label="bank">🏦</span> Przelew bankowy</span>
+              <span className="flex items-center gap-2"><span role="img" aria-label="blik">📱</span> BLIK</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <FAQ05 />
+      {/* FAQ section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <FAQ05 />
+        </div>
+      </section>
 
-      {/* Stopka */}
+      {/* Final CTA section */}
+      <section className="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6">Gotowy na zdobycie prawa jazdy w Czechach?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Nie czekaj dłużej! Skontaktuj się z nami już dziś i zacznij proces uzyskania prawa jazdy w Czechach.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Button size="lg" className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+              <Phone className="mr-2 h-5 w-5" />
+              Zadzwoń teraz: 788 450 137
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-orange-500 px-8 py-4 text-lg font-semibold"
+            >
+              <Mail className="mr-2 h-5 w-5" />
+              Napisz email
+            </Button>
+          </div>
+
+          <p className="text-lg font-semibold">CZESKIEPRAWOJAZDY@PROTON.ME</p>
+        </div>
+      </section>
+
+      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="flex flex-col items-center gap-4 mb-8">
-            <span className="text-xl font-bold tracking-widest">CZESKIEPRAWOJAZDY@PROTON.ME</span>
-            <div className="flex justify-center gap-8">
-              <a href="#" className="hover:text-gray-300">Kontakt</a>
-              <a href="#" className="hover:text-gray-300">Regulamin</a>
-              <a href="#" className="hover:text-gray-300">Polityka prywatności</a>
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4 !text-white">Kontakt</h3>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Phone className="h-5 w-5 text-orange-400" />
+                  <span className="text-2xl font-bold text-white">788 450 137</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-5 w-5 text-orange-400" />
+                  <span className="text-2xl font-bold text-white lowercase">czeskieprawojazdy@proton.me</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4 !text-white">Usługi</h3>
+              <ul className="space-y-2 text-gray-200">
+                <li>Prawo jazdy kat. B</li>
+                <li>Prawo jazdy kat. A</li>
+                <li>Prawo jazdy kat. C</li>
+                <li>Kod 95</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4 !text-white">Informacje</h3>
+              <ul className="space-y-2 text-gray-200">
+                <li>Regulamin</li>
+                <li>Polityka prywatności</li>
+                <li>FAQ</li>
+              </ul>
             </div>
           </div>
-          <div className="flex justify-center gap-4">
-            <a href="https://wa.me/48788450137" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" fill="currentColor"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.1 2.33 7.09L4 29l7.18-2.28A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.98 0-3.89-.52-5.54-1.5l-.39-.23-4.27 1.36 1.4-4.16-.25-.4A9.94 9.94 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.07-7.75c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.28.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.62-.47-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.34-.26.26-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.15.2 2.03 3.1 4.93 4.22.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
-              WhatsApp
-            </a>
+
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
+            <p className="text-sm">&copy; 2024 Prawo Jazdy w Czechach. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>
@@ -253,11 +476,11 @@ export default function Home() {
       {showCallPopout && (
         <div className="fixed bottom-6 right-6 z-50 bg-white border border-accent rounded-xl shadow-lg p-6 flex items-center gap-4 animate-fade-in">
           <span className="text-lg font-semibold text-primary">Masz pytania? Zadzwoń teraz:</span>
-          <a href="tel:+48788450137" className="text-xl font-bold text-accent underline whitespace-nowrap">+48 788 450 137</a>
+          <a href="tel:788450137" className="text-xl font-bold text-accent underline whitespace-nowrap">788 450 137</a>
           <button
             onClick={() => setShowCallPopout(false)}
             className="ml-2 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
-            aria-label="Zamknij"
+            aria-label="Zamknij okno zachęty do telefonu"
           >
             ×
           </button>
