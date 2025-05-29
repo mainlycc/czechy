@@ -188,7 +188,7 @@ export default function Home() {
                   </div>
                   <span className="text-sm font-semibold">5.0</span>
                 </div>
-                <p className="text-sm">"Zdałem za pierwszym razem! Polecam każdemu."</p>
+                <p className="text-sm">&quot;Zdałem za pierwszym razem! Polecam każdemu.&quot;</p>
                 <p className="text-xs text-gray-600 mt-1">- Marcin K.</p>
               </div>
             </div>
@@ -313,7 +313,7 @@ export default function Home() {
                       <Star key={i} className="h-5 w-5 fill-current" />
                     ))}
                   </div>
-                  <p className="text-lg mb-4 leading-relaxed !text-white">"{testimonial.text}"</p>
+                  <p className="text-lg mb-4 leading-relaxed !text-white">&quot;{testimonial.text}&quot;</p>
                   <p className="font-semibold text-orange-300">- {testimonial.author}</p>
                 </CardContent>
               </Card>
