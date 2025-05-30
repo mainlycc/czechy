@@ -107,7 +107,7 @@ export default function Home() {
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-tight text-center lg:text-left">
                   <span className="text-white">Prawo jazdy w Czechach – </span>
-                  <span className="text-orange-400 font-extrabold drop-shadow-lg">zdaj egzamin praktyczny</span>
+                  <span className="text-orange-400 font-extrabold drop-shadow-lg">zdaj egzamin</span>
                   <span className="text-white"> łatwo, szybko, bez stresu</span>
                 </h1>
                 <p className="text-lg md:text-xl text-blue-100 leading-relaxed text-center lg:text-left">
@@ -282,7 +282,7 @@ export default function Home() {
       <section className="py-12 md:py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Opinie kursantów o egzaminach w Czechach</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 !text-white">Opinie kursantów o egzaminach w Czechach</h2>
             <p className="text-lg md:text-xl text-blue-100">Zobacz, co mówią nasi zadowoleni klienci</p>
           </div>
 
@@ -324,7 +324,7 @@ export default function Home() {
               <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Button>
             <p className="mt-4 text-sm md:text-base text-blue-100">
-              Zadzwoń do nas już dziś: <span className="font-bold text-orange-300">CZESKIEPRAWOJAZDY@PROTON.ME</span>
+              Zadzwoń do nas już dziś: <span className="font-bold text-orange-300">czeskieprawojazdy@proton.me</span>
             </p>
           </div>
         </div>
@@ -422,7 +422,7 @@ export default function Home() {
             </Button>
           </div>
 
-          <p className="text-base md:text-lg font-semibold">CZESKIEPRAWOJAZDY@PROTON.ME</p>
+          <p className="text-base md:text-lg font-semibold">czeskieprawojazdy@proton.me</p>
         </div>
       </section>
 

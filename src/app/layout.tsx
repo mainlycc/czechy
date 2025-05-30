@@ -54,7 +54,7 @@ const faqJsonLd = `{
       "name": "Jak długo to trwa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Najczęściej 7–10 dni. Pomagamy ustalić termin i organizujemy cały proces od początku do końca."
+        "text": "Najczęściej 3–4 dni. Pomagamy ustalić termin i organizujemy cały proces od początku do końca."
       }
     },
     {

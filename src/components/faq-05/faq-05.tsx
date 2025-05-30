@@ -36,7 +36,7 @@ const faq = [
     icon: TimerReset,
     question: "Jak długo to trwa?",
     answer:
-      "Najczęściej 7–10 dni. Pomagamy ustalić termin i organizujemy cały proces od początku do końca.",
+      "Najczęściej 3–4 dni. Pomagamy ustalić termin i organizujemy cały proces od początku do końca.",
   },
   {
     icon: Users,
