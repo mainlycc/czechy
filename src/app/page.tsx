@@ -96,37 +96,37 @@ export default function Home() {
       {/* Hero Section - Optimized for conversion */}
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+        <div className="container mx-auto px-4 py-8 md:py-16 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-6 md:space-y-8">
               <div className="space-y-4">
                 <div className="flex justify-center">
-                  <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 text-sm font-semibold flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-white" /> wysoka skuteczność zdawalności!
+                  <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 md:px-4 md:py-2 text-xs md:text-sm font-semibold flex items-center gap-2">
+                    <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-white" /> wysoka skuteczność zdawalności!
                   </Badge>
                 </div>
-                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-tight text-center lg:text-left">
                   <span className="text-white">Prawo jazdy w Czechach – </span>
                   <span className="text-orange-400 font-extrabold drop-shadow-lg">zdaj egzamin praktyczny</span>
                   <span className="text-white"> łatwo, szybko, bez stresu</span>
                 </h1>
-                <p className="text-xl text-blue-100 leading-relaxed">
+                <p className="text-lg md:text-xl text-blue-100 leading-relaxed text-center lg:text-left">
                   Nie możesz zdać prawa jazdy w Polsce? Z nami zdasz praktykę w Czechach – pomagamy we wszystkim, od A do Z.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
                   size="lg"
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
-                  <Zap className="mr-2 h-5 w-5" />
+                  <Zap className="mr-2 h-4 w-4 md:h-5 md:w-5" />
                   Zacznij dzisiaj
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold"
+                  className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-blue-900 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold"
                   onClick={() => {
                     const pricingSection = document.getElementById('cennik');
                     if (pricingSection) {
@@ -138,23 +138,23 @@ export default function Home() {
                 </Button>
               </div>
 
-              <div className="flex items-center gap-6 text-sm">
+              <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-400" />
                   <span>Brak ukrytych kosztów</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-400" />
                   <span>Wsparcie 24/7</span>
                 </div>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="flex flex-col gap-2 justify-center items-center text-center font-semibold text-2xl text-orange-200">
+                <div className="flex flex-col gap-2 justify-center items-center text-center font-semibold text-lg md:text-2xl text-orange-200">
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-2">
                     <span>Adres e-mail:</span>
                     <button
-                      className={`transition-colors duration-200 focus:outline-none text-3xl font-bold ${copied ? 'text-green-400' : 'text-orange-400'}`}
+                      className={`transition-colors duration-200 focus:outline-none text-xl md:text-3xl font-bold ${copied ? 'text-green-400' : 'text-orange-400'}`}
                       onClick={() => {
                         navigator.clipboard.writeText('czeskieprawojazdy@proton.me');
                         setCopied(true);
@@ -167,35 +167,35 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-2">
                     <span>Telefon:</span>
-                    <span className="text-3xl font-bold text-orange-400">788 450 137</span>
+                    <span className="text-xl md:text-3xl font-bold text-orange-400">788 450 137</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative">
+            <div className="relative mt-8 lg:mt-0">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-2">
                 <Image
                   src="/samochód.png"
                   alt="Egzamin praktyczny na prawo jazdy w Czechach"
                   width={600}
                   height={400}
-                  className="rounded-xl shadow-2xl"
+                  className="rounded-xl shadow-2xl w-full h-auto"
                   priority
                 />
               </div>
               {/* Floating testimonial */}
-              <div className="absolute -bottom-6 -left-6 bg-white text-gray-900 p-4 rounded-lg shadow-xl max-w-xs">
+              <div className="absolute -bottom-6 -left-6 bg-white text-gray-900 p-3 md:p-4 rounded-lg shadow-xl max-w-[250px] md:max-w-xs">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="flex text-yellow-400">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-current" />
+                      <Star key={i} className="h-3 w-3 md:h-4 md:w-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-sm font-semibold">5.0</span>
+                  <span className="text-xs md:text-sm font-semibold">5.0</span>
                 </div>
-                <p className="text-sm">&quot;Zdałem za pierwszym razem! Polecam każdemu.&quot;</p>
-                <p className="text-xs text-gray-600 mt-1">- Marcin K.</p>
+                <p className="text-xs md:text-sm">&quot;Zdałem za pierwszym razem! Polecam każdemu.&quot;</p>
+                <p className="text-[10px] md:text-xs text-gray-600 mt-1">- Marcin K.</p>
               </div>
             </div>
           </div>
@@ -219,29 +219,29 @@ export default function Home() {
       </section>
 
       {/* Why choose us section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Dlaczego warto?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Dlaczego warto?</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Poznaj wszystkie korzyści i zobacz, dlaczego tysiące Polaków wybiera Czech Republic
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {advantages.map((item, index) => (
               <Card
                 key={index}
                 className="border-2 border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300 shadow-lg bg-white"
               >
-                <CardHeader>
-                  <div className="mb-4 flex justify-center items-center">
-                    <span className="text-5xl">{item.icon}</span>
+                <CardHeader className="p-4 md:p-6">
+                  <div className="mb-3 md:mb-4 flex justify-center items-center">
+                    <span className="text-4xl md:text-5xl">{item.icon}</span>
                   </div>
-                  <CardTitle className="text-xl text-gray-900">{item.title}</CardTitle>
+                  <CardTitle className="text-lg md:text-xl text-gray-900 text-center">{item.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 leading-relaxed">{item.desc}</CardDescription>
+                <CardContent className="p-4 md:p-6">
+                  <CardDescription className="text-sm md:text-base text-gray-600 leading-relaxed">{item.desc}</CardDescription>
                 </CardContent>
               </Card>
             ))}
@@ -250,27 +250,27 @@ export default function Home() {
       </section>
 
       {/* Process section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-gray-50 to-orange-50">
+      <section className="py-12 md:py-20 bg-gradient-to-br from-blue-50 via-gray-50 to-orange-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Jak wygląda proces uzyskania prawa jazdy w Czechach?
             </h2>
-            <p className="text-xl text-gray-600">Prosty, przejrzysty proces w 6 krokach</p>
+            <p className="text-lg md:text-xl text-gray-600">Prosty, przejrzysty proces w 6 krokach</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             {timeline.map((item, index) => (
-              <div key={index} className="flex gap-6 mb-8 last:mb-0">
+              <div key={index} className="flex gap-4 md:gap-6 mb-6 md:mb-8 last:mb-0">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-base md:text-lg shadow-lg">
                     {item.number}
                   </div>
-                  {index < 5 && <div className="w-0.5 h-16 bg-orange-200 mx-auto mt-4"></div>}
+                  {index < 5 && <div className="w-0.5 h-12 md:h-16 bg-orange-200 mx-auto mt-2 md:mt-4"></div>}
                 </div>
-                <div className="flex-1 pt-2 bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                <div className="flex-1 pt-1 md:pt-2 bg-white p-4 md:p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -279,14 +279,14 @@ export default function Home() {
       </section>
 
       {/* Testimonials section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Opinie kursantów o egzaminach w Czechach</h2>
-            <p className="text-xl text-blue-100">Zobacz, co mówią nasi zadowoleni klienci</p>
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Opinie kursantów o egzaminach w Czechach</h2>
+            <p className="text-lg md:text-xl text-blue-100">Zobacz, co mówią nasi zadowoleni klienci</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {[
               {
                 text: "Już nie musiałem się stresować. Cały proces był bardzo dobrze zorganizowany, a instruktor świetnie mnie przygotował.",
@@ -305,25 +305,25 @@ export default function Home() {
               },
             ].map((testimonial, index) => (
               <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <CardContent className="p-6">
-                  <div className="flex text-yellow-400 mb-4">
+                <CardContent className="p-4 md:p-6">
+                  <div className="flex text-yellow-400 mb-3 md:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-current" />
+                      <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current" />
                     ))}
                   </div>
-                  <p className="text-lg mb-4 leading-relaxed !text-white">&quot;{testimonial.text}&quot;</p>
+                  <p className="text-base md:text-lg mb-3 md:mb-4 leading-relaxed !text-white">&quot;{testimonial.text}&quot;</p>
                   <p className="font-semibold text-orange-300">- {testimonial.author}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold">
+          <div className="text-center mt-8 md:mt-12">
+            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
               Nie trać więcej czasu i pieniędzy
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Button>
-            <p className="mt-4 text-blue-100">
+            <p className="mt-4 text-sm md:text-base text-blue-100">
               Zadzwoń do nas już dziś: <span className="font-bold text-orange-300">CZESKIEPRAWOJAZDY@PROTON.ME</span>
             </p>
           </div>
@@ -331,14 +331,14 @@ export default function Home() {
       </section>
 
       {/* Pricing section */}
-      <section id="cennik" className="py-20 bg-white">
+      <section id="cennik" className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Cennik egzaminów i kursów prawa jazdy w Czechach</h2>
-            <p className="text-xl text-gray-600">Przejrzyste ceny, bez ukrytych kosztów</p>
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Cennik egzaminów i kursów prawa jazdy w Czechach</h2>
+            <p className="text-lg md:text-xl text-gray-600">Przejrzyste ceny, bez ukrytych kosztów</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
             {prices.map((item, index) => (
               <Card
                 key={index}
@@ -349,15 +349,15 @@ export default function Home() {
                 }`}
               >
                 {item.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-1">
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-3 py-1 text-xs md:text-sm">
                     Najpopularniejsze
                   </Badge>
                 )}
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl text-gray-900">{item.category}</CardTitle>
-                  <div className="text-4xl font-bold text-orange-500 mt-4">{item.price}</div>
+                <CardHeader className="text-center p-4 md:p-6">
+                  <CardTitle className="text-xl md:text-2xl text-gray-900">{item.category}</CardTitle>
+                  <div className="text-3xl md:text-4xl font-bold text-orange-500 mt-3 md:mt-4">{item.price}</div>
                 </CardHeader>
-                <CardContent className="text-center">
+                <CardContent className="text-center p-4 md:p-6">
                   <Button
                     className={`w-full ${item.popular ? "bg-orange-500 hover:bg-orange-600" : "bg-blue-600 hover:bg-blue-700"} text-white`}
                     size="lg"
@@ -369,21 +369,21 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">Ceny zawierają pełną obsługę, transport i zakwaterowanie</p>
+          <div className="text-center mt-8 md:mt-12">
+            <p className="text-sm md:text-base text-gray-600 mb-4">Ceny zawierają pełną obsługę, transport i zakwaterowanie</p>
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg"
             >
               Zapytaj o indywidualną wycenę
             </Button>
           </div>
 
           {/* Sekcja z informacją o VAT i opcjach płatności */}
-          <div className="mt-16 bg-blue-50 rounded-xl py-6 px-4 text-center">
-            <p className="text-lg font-semibold text-gray-700 mb-4">Wszystkie ceny zawierają podatek VAT. Możliwość płatności w ratach.</p>
-            <div className="flex flex-wrap justify-center gap-8 text-base font-medium text-gray-700">
+          <div className="mt-8 md:mt-16 bg-blue-50 rounded-xl py-4 md:py-6 px-4 text-center">
+            <p className="text-base md:text-lg font-semibold text-gray-700 mb-3 md:mb-4">Wszystkie ceny zawierają podatek VAT. Możliwość płatności w ratach.</p>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base font-medium text-gray-700">
               <span className="flex items-center gap-2"><span role="img" aria-label="karta">💳</span> Płatność kartą</span>
               <span className="flex items-center gap-2"><span role="img" aria-label="bank">🏦</span> Przelew bankowy</span>
               <span className="flex items-center gap-2"><span role="img" aria-label="blik">📱</span> BLIK</span>
@@ -400,53 +400,53 @@ export default function Home() {
       </section>
 
       {/* Final CTA section */}
-      <section className="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Gotowy na zdobycie prawa jazdy w Czechach?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Gotowy na zdobycie prawa jazdy w Czechach?</h2>
+          <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">
             Nie czekaj dłużej! Skontaktuj się z nami już dziś i zacznij proces uzyskania prawa jazdy w Czechach.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button size="lg" className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
-              <Phone className="mr-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6 md:mb-8">
+            <Button size="lg" className="bg-white text-orange-500 hover:bg-gray-100 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
+              <Phone className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Zadzwoń teraz: 788 450 137
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-orange-500 px-8 py-4 text-lg font-semibold"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-orange-500 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold"
             >
-              <Mail className="mr-2 h-5 w-5" />
+              <Mail className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Napisz email
             </Button>
           </div>
 
-          <p className="text-lg font-semibold">CZESKIEPRAWOJAZDY@PROTON.ME</p>
+          <p className="text-base md:text-lg font-semibold">CZESKIEPRAWOJAZDY@PROTON.ME</p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4 !text-white">Kontakt</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-4 !text-white">Kontakt</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <Phone className="h-5 w-5 text-orange-400" />
-                  <span className="text-2xl font-bold text-white">788 450 137</span>
+                  <Phone className="h-4 w-4 md:h-5 md:w-5 text-orange-400" />
+                  <span className="text-xl md:text-2xl font-bold text-white">788 450 137</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="h-5 w-5 text-orange-400" />
-                  <span className="text-2xl font-bold text-white lowercase">czeskieprawojazdy@proton.me</span>
+                  <Mail className="h-4 w-4 md:h-5 md:w-5 text-orange-400" />
+                  <span className="text-xl md:text-2xl font-bold text-white lowercase">czeskieprawojazdy@proton.me</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-4 !text-white">Usługi</h3>
-              <ul className="space-y-2 text-gray-200">
+              <h3 className="text-lg md:text-xl font-bold mb-4 !text-white">Usługi</h3>
+              <ul className="space-y-2 text-sm md:text-base text-gray-200">
                 <li>Prawo jazdy kat. B</li>
                 <li>Prawo jazdy kat. A</li>
                 <li>Prawo jazdy kat. C</li>
@@ -455,8 +455,8 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-4 !text-white">Informacje</h3>
-              <ul className="space-y-2 text-gray-200">
+              <h3 className="text-lg md:text-xl font-bold mb-4 !text-white">Informacje</h3>
+              <ul className="space-y-2 text-sm md:text-base text-gray-200">
                 <li>Regulamin</li>
                 <li>Polityka prywatności</li>
                 <li>FAQ</li>
@@ -464,20 +464,20 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
-            <p className="text-sm">&copy; 2024 Prawo Jazdy w Czechach. Wszystkie prawa zastrzeżone.</p>
+          <div className="border-t border-gray-700 mt-6 md:mt-8 pt-6 md:pt-8 text-center text-gray-500">
+            <p className="text-xs md:text-sm">&copy; 2024 Prawo Jazdy w Czechach. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>
 
       {/* Pop-out zachęcający do telefonu */}
       {showCallPopout && (
-        <div className="fixed bottom-6 right-6 z-50 bg-white border border-accent rounded-xl shadow-lg p-6 flex items-center gap-4 animate-fade-in">
-          <span className="text-lg font-semibold text-primary">Masz pytania? Zadzwoń teraz:</span>
-          <a href="tel:788450137" className="text-xl font-bold text-accent underline whitespace-nowrap">788 450 137</a>
+        <div className="fixed bottom-4 md:bottom-6 right-4 md:right-6 z-50 bg-white border border-accent rounded-xl shadow-lg p-4 md:p-6 flex flex-col sm:flex-row items-center gap-3 md:gap-4 animate-fade-in">
+          <span className="text-base md:text-lg font-semibold text-primary">Masz pytania? Zadzwoń teraz:</span>
+          <a href="tel:788450137" className="text-lg md:text-xl font-bold text-accent underline whitespace-nowrap">788 450 137</a>
           <button
             onClick={() => setShowCallPopout(false)}
-            className="ml-2 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
+            className="ml-2 text-gray-400 hover:text-gray-700 text-xl md:text-2xl font-bold focus:outline-none"
             aria-label="Zamknij okno zachęty do telefonu"
           >
             ×
