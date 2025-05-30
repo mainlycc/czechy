@@ -114,6 +114,17 @@ export default function RootLayout({
         <meta name="theme-color" content="#e3f0ff" />
         <link rel="canonical" href="https://czeskieprawojazdy.pl/" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17128297535"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17128297535');
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-blue-50 text-blue-900`}

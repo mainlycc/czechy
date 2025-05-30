@@ -150,19 +150,25 @@ export default function Home() {
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-2 text-center font-semibold text-2xl text-orange-200">
-                  <span>Adres e-mail:</span>
-                  <button
-                    className={`transition-colors duration-200 focus:outline-none text-3xl font-bold ${copied ? 'text-green-400' : 'text-orange-400'}`}
-                    onClick={() => {
-                      navigator.clipboard.writeText('czeskieprawojazdy@proton.me');
-                      setCopied(true);
-                      setTimeout(() => setCopied(false), 1500);
-                    }}
-                    title="Kliknij, aby skopiować adres e-mail"
-                  >
-                    czeskieprawojazdy@proton.me
-                  </button>
+                <div className="flex flex-col gap-2 justify-center items-center text-center font-semibold text-2xl text-orange-200">
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-2">
+                    <span>Adres e-mail:</span>
+                    <button
+                      className={`transition-colors duration-200 focus:outline-none text-3xl font-bold ${copied ? 'text-green-400' : 'text-orange-400'}`}
+                      onClick={() => {
+                        navigator.clipboard.writeText('czeskieprawojazdy@proton.me');
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 1500);
+                      }}
+                      title="Kliknij, aby skopiować adres e-mail"
+                    >
+                      czeskieprawojazdy@proton.me
+                    </button>
+                  </div>
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-2">
+                    <span>Telefon:</span>
+                    <span className="text-3xl font-bold text-orange-400">788 450 137</span>
+                  </div>
                 </div>
               </div>
             </div>
