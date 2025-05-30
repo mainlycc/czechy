@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { Footer } from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -125,11 +126,23 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Zapobieganie błędom MetaMask
+              if (typeof window !== 'undefined') {
+                window.ethereum = window.ethereum || {};
+                window.ethereum.isMetaMask = false;
+              }
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-blue-50 text-blue-900`}
       >
         {children}
+        <Footer />
         <Analytics />
       </body>
     </html>
