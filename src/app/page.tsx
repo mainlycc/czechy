@@ -107,7 +107,7 @@ export default function Home() {
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-tight text-center lg:text-left">
                   <span className="text-white">Prawo jazdy w Czechach – </span>
-                  <span className="text-orange-400 font-extrabold drop-shadow-lg">zdaj egzamin</span>
+                  <span className="text-orange-400 font-extrabold drop-shadow-lg italic">zdaj egzamin</span>
                   <span className="text-white"> łatwo, szybko, bez stresu</span>
                 </h1>
                 <p className="text-lg md:text-xl text-blue-100 leading-relaxed text-center lg:text-left">
@@ -167,7 +167,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-2">
                     <span>Telefon:</span>
-                    <span className="text-xl md:text-3xl font-bold text-orange-400">788 450 137</span>
+                    <span className="text-xl md:text-3xl font-bold text-orange-400">+48 788 450 137</span>
                   </div>
                 </div>
               </div>
@@ -414,7 +414,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6 md:mb-8">
             <Button size="lg" className="bg-white text-orange-500 hover:bg-gray-100 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
               <Phone className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-              Zadzwoń teraz: 788 450 137
+              Zadzwoń teraz: +48 788 450 137
             </Button>
             <Button
               variant="outline"
@@ -435,7 +435,7 @@ export default function Home() {
         <div className="fixed bottom-4 md:bottom-6 right-4 md:right-6 z-50 bg-orange-500 border border-orange-400 rounded-xl shadow-lg p-4 md:p-6 flex flex-col sm:flex-row items-center gap-3 md:gap-4 animate-fade-in">
           <Phone className="h-5 w-5 md:h-6 md:w-6 text-white" />
           <span className="text-base md:text-lg font-semibold text-white">Masz pytania? Zadzwoń teraz:</span>
-          <a href="tel:788450137" className="text-lg md:text-xl font-bold text-white underline whitespace-nowrap">788 450 137</a>
+          <a href="tel:+48788450137" className="text-lg md:text-xl font-bold text-white underline whitespace-nowrap">+48 788 450 137</a>
           <button
             onClick={() => setShowCallPopout(false)}
             className="ml-2 text-white/80 hover:text-white text-xl md:text-2xl font-bold focus:outline-none"
