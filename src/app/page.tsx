@@ -16,7 +16,7 @@ const timeline = [
   {
     number: "2",
     title: "Przyjazd do Czech",
-    desc: "Przyjeżdżasz wybraną formą transportu. Odbieramy Cię z dworca lub lotniska i pomagamy od pierwszych chwil.",
+    desc: "Przyjeżdżasz wybraną formą transportu. Odbieramy Cię z dworca lub lotniska i pomagamy od pierwszych chwil. Egzamin odbywa się w Pardubicach.",
   },
   {
     number: "3",
@@ -44,7 +44,7 @@ const advantages = [
   {
     icon: "🚘",
     title: "Egzamin prostszy niż w Polsce",
-    desc: "W Czechach procedury są mniej restrykcyjne, a atmosfera bardziej przyjazna. Egzaminatorzy nie szukają błędów na siłę – oceniają realne umiejętności.",
+    desc: "W Czechach nie ma na egzaminie placu manewrowego, a w mieście gdzie odbywa się egzamin nie ma tramwajów. Egzaminatorzy są bardziej przyjaźni, a trasy są prostsze – oceniają realne umiejętności, a nie szukają błędów na siłę.",
   },
   {
     icon: "😌",
@@ -145,7 +145,15 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-400" />
-                  <span>Wsparcie 24/7</span>
+                  <span>Egzamin bez placu manewrowego</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-400" />
+                  <span>Do wyboru automat lub manual</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-400" />
+                  <span>W cenie meldunek</span>
                 </div>
               </div>
 
@@ -205,7 +213,7 @@ export default function Home() {
       {/* Trust indicators */}
       <section className="py-8 bg-gradient-to-r from-orange-50 via-blue-50 to-orange-100 shadow-lg border-y-2 border-orange-200">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="space-y-2">
               <div className="text-3xl font-bold text-blue-900">30 min</div>
               <div className="text-sm text-gray-600">Średni czas egzaminu</div>
@@ -213,6 +221,14 @@ export default function Home() {
             <div className="space-y-2">
               <div className="text-3xl font-bold text-blue-900">24/7</div>
               <div className="text-sm text-gray-600">Wsparcie klientów</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-red-600">25-39%</div>
+              <div className="text-sm text-gray-600">Zdawalność w Polsce</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-green-600">90%</div>
+              <div className="text-sm text-gray-600">Zdawalność w Czechach</div>
             </div>
           </div>
         </div>
@@ -224,7 +240,7 @@ export default function Home() {
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Dlaczego warto?</h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Poznaj wszystkie korzyści i zobacz, dlaczego tysiące Polaków wybiera Czech Republic
+              Poznaj wszystkie korzyści i zobacz, dlaczego tysiące Polaków wybiera Czechy
             </p>
           </div>
 
@@ -323,7 +339,11 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8 md:mt-12">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
+            <Button 
+              size="lg" 
+              className="bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold"
+              onClick={() => window.location.href = 'tel:+48690043510'}
+            >
               Nie trać więcej czasu i pieniędzy
               <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Button>
@@ -397,7 +417,7 @@ export default function Home() {
       </section>
 
       {/* FAQ section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <FAQ05 />
         </div>
@@ -408,7 +428,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Gotowy na zdobycie prawa jazdy w Czechach?</h2>
           <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">
-            Nie czekaj dłużej! Skontaktuj się z nami już dziś i zacznij proces uzyskania prawa jazdy w Czechach.
+            Nie czekaj dłużej! Skontaktuj się z nami już dziś i dowiedz się, jak szybko możesz mieć prawo jazdy — nawet w 30 dni!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6 md:mb-8">
