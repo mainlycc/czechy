@@ -74,12 +74,12 @@ const advantages = [
 ];
 
 const prices = [
-  { category: "Kategoria A", price: "2900 zł" },
-  { category: "Kategoria B", price: "2900 zł", popular: true },
-  { category: "Kategoria E do B", price: "2100 zł" },
-  { category: "Kategoria C", price: "4800 zł" },
-  { category: "Kategoria E do C", price: "4100 zł" },
-  { category: "Kod 95", price: "2100 zł" },
+  { category: "Kategoria A", price: "3100 zł" },
+  { category: "Kategoria B", price: "3100 zł", popular: true },
+  { category: "Kategoria E do B", price: "2300 zł" },
+  { category: "Kategoria C", price: "5000 zł" },
+  { category: "Kategoria E do C", price: "4300 zł" },
+  { category: "Kod 95", price: "2300 zł" },
 ];
 
 export default function Home() {
